@@ -103,32 +103,85 @@ Q(t+1)=T′Q(t)+TQ(t)′
 
 ### Procedure
 /* write all the steps invloved */
+STEP 1: Open Quartus II and select new project and choose the file location.
 
+STEP 2: Module Declaration. Module should have the file name.
 
+STEPS 3: Input-Output Delecaration.
+
+STEPS 4: Use assign declaration and wire to define the functionality of logic circuits.
+
+STEP 5: At the end give endmodule.
+
+STEP 6: Run the program and choose RTL viewer to get RTL realization.
 
 ### PROGRAM 
-/*
+
 Program for flipflops  and verify its truth table in quartus using Verilog programming.
-Developed by: 
-RegisterNumber:  
-*/
+Developed by:RAGUNATH R 
+RegisterNumber:22008922  
+SR FLIP-FLOP:
+
+module sr(s,r,clk,Q,Qbar);
+input s,r,Clk;
+output Q,Qbar;
+wire X,Y;
+nand (X,s,Clk);
+nand (Y,r,Clk);
+nand (Q,X,Qbar);
+nand(Qbar,Y,Q);
+endmodule
+
+D FLIP-FLOP:
+
+module DF (D,Clock,Q,Qbar);
+input D,Clock;
+output Q,Qbar;
+assign Dbar = ~D;
+wire X,Y;
+nand (X,D,Clock);
+nand (Y,Dbar,Clock);
+nand (Q,X,Qbar);
+nand (Qbar,Y,Q);
+endmodule
 
 
+JK FLIP-FLOP:
 
+module jk(J,K,clk,Q,Qbar);
+input J,K,clk;
+output Q,Qbar;
+wire P,S;
+nand (P,J,clk,Qbar);
+nand (S,K,clk,Q);
+nand (Q,P,Qbar);
+nand (Qbar,S,Q);
+endmodule
 
+T FLIP-FLOP:
 
+module TF (T,Clock,Q,Qbar);
+input T,Clock;
+output Q,Qbar;
+wire A,B;
+nand (A,T,Clock,Qbar);
+nand (B,T,Clock,Q);
+nand (Q,A,Qbar);
+nand (Qbar,B,Q);
+endmodule
 
 ### RTL LOGIC FOR FLIPFLOPS 
-
-
-
-
-
-
-
-
+![image](https://user-images.githubusercontent.com/113915622/212447509-65088e92-c485-442e-b742-a923df707961.png)
 
 ### TIMING DIGRAMS FOR FLIP FLOPS 
+![image](https://user-images.githubusercontent.com/113915622/212447560-ae019ec2-3467-4528-955b-63af83a3b738.png)
+![image](https://user-images.githubusercontent.com/113915622/212447623-2ba9d473-1b60-4850-8cbc-26e68946d904.png)
+![image](https://user-images.githubusercontent.com/113915622/212447658-b8b06dfc-d4d8-4b08-b736-44ec07fc9e8c.png)
+![image](https://user-images.githubusercontent.com/113915622/212447963-653697c4-e29f-49a9-a1b1-08ecbda0b270.png)
+![image](https://user-images.githubusercontent.com/113915622/212447991-89ab142f-03f6-483c-a00b-5a5952cfa05d.png)
+![image](https://user-images.githubusercontent.com/113915622/212448013-96622000-7f30-41f2-b76d-094fc613aa01.png)
+![image](https://user-images.githubusercontent.com/113915622/212448029-1bf17df2-0c57-4855-9845-d798ce6b3196.png)
+
 
 
 
@@ -138,3 +191,4 @@ RegisterNumber:
 
 
 ### RESULTS 
+All the flipflops are implemented using verilog and their functionality has been validated using their functional tables.
